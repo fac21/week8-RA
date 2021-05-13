@@ -100,7 +100,12 @@ function Board(props) {
     setCards(newCards)
 
 
-    if (completed.length === 3) props.setResult(true)
+    if (completed.length === 3) {
+      props.setResult(true)
+      setCompleted([])
+      setCheckers([])
+
+    }
   }, [checkers, completed])
 
   
