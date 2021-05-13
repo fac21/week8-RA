@@ -1,7 +1,8 @@
 body {
-  margin: 0;
-  padding: 0;
+  margin: 1rem;
+  padding: 1rem;
   box-sizing: border-box;
+  background-image: url(./public/sky.jpg);
 }
 
 .flex-row {
@@ -9,6 +10,18 @@ body {
   flex-flow: row;
   justify-content: center;
   align-items: center;
+}
+
+.flex-column {
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+}
+
+a {
+color: white;
+margin-bottom: 30px;
 }
 
 .imageSelection {
@@ -31,4 +44,21 @@ body {
 
 .stack-large > * + * {
   margin-top: 4rem;
+}
+
+.board {
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 4rem;
+}
+
+.card{
+  min-width: 200px;
+  min-height: 200px;
+  border: 1px black solid;
+}
+
+.card>img{
+  max-width: 200px;
 }

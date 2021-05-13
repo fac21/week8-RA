@@ -2,6 +2,20 @@ import React from "react";
 import planetImage from "../public/planets.png";
 import Card from "./Card";
 
+function shuffle(array) {
+
+  const newArray = [...array]
+  
+  for (var i = newArray.length - 1; i > 0; i--) {
+      var j = Math.floor(Math.random() * (i + 1));
+      var temp = newArray[i];
+      newArray[i] = newArray[j];
+      newArray[j] = temp;
+  }
+
+  return newArray
+}
+
 function assignImagesToCards(imageUrlArray) {
   let id = 0;
 
@@ -14,10 +28,10 @@ function assignImagesToCards(imageUrlArray) {
   const cards = Object.keys(images).reduce((result, key) => {
     const createCard = () => ({
       id: id++,
-      type: key, //
+      type: key, 
       backImg: planetImage,
       frontImg: images[key],
-      flipped: true,
+      flipped: false,
     });
     result.push(createCard());
     result.push(createCard());
@@ -29,13 +43,13 @@ function assignImagesToCards(imageUrlArray) {
 }
 
 function Board(props) {
-  const [cards, setCards] = React.useState([]); // [{},{},{}]
+  const [cards, setCards] = React.useState([]);
 
   const [checkers, setCheckers] =  React.useState([])
   const [completed, setCompleted] =  React.useState([])
 
 
-  const onCardClick = (card) => {
+  const onCardClick = card => () => {
 
     console.log(card, checkers)
     if (checkersFull(checkers) || cardAlreadyInCheckers(checkers, card)) return
@@ -84,16 +98,19 @@ function Board(props) {
         completed.includes(card.type),
     }))
     setCards(newCards)
+
+
+    if (completed.length === 3) props.setResult(true)
   }, [checkers, completed])
 
   
 
   React.useEffect(() => {
-    setCards(assignImagesToCards(props.planets));
+    setCards(shuffle(assignImagesToCards(props.planets)));
   }, [props.planets]);
 
   return (
-    <div className="Board">
+    <div className="board">
       {cards.map((card) => (
         <Card {...card} onClick={onCardClick(card)} key={card.id} />
       ))}

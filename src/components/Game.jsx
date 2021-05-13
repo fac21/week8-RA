@@ -46,6 +46,7 @@ function Game(props) {
       }
     });
 
+    setResult(false)
     setPlanets([...temporaryPlanets]);
   }
 
@@ -88,8 +89,8 @@ function Game(props) {
         {planetsImages[1]  ? <img src={planetsImages[1]} alt="selected image 2"  /> : ""}
         {planetsImages[2]   ? <img src={planetsImages[2]} alt="selected image 3"  /> : ""}
       </div>
-      <Board planets={planetsImages}/>
-      <Result result={result} />
+      <Board planets={planetsImages} setResult={setResult}/>
+      {result? <Result result={result}  /> : "" }
     </div>
   );
 }

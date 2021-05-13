@@ -3,7 +3,7 @@ import Game from "./Game";
 
 function Result(props) {
     // console.log(props.result)
-    return props.result ? <h1>win</h1> : <h1>lose</h1>
+    return <h1>Congrats you're the best you win </h1>
 }
 
 export default Result;

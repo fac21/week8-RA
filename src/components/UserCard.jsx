@@ -5,7 +5,7 @@ function UserCard(props) {
   const twitterUrl = "https://twitter.com/";
   const twitterUsername = props.profileData.twitter_username;
   return (
-    <div className="userCard">
+    <div className="userCard flex-column stack-medium">
       <h1>{props.profileData.name}</h1>
       <img src={props.profileData.avatar_url} alt="profile image" />
       {twitterUsername ? (
