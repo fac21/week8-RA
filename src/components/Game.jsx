@@ -42,7 +42,6 @@ function Game(props) {
     event.target.querySelectorAll("option").forEach((element) => {
       if (element.selected) {
         temporaryPlanets.push(element.value);
-        console.log("Test",planets)
       }
     });
 
@@ -56,35 +55,18 @@ function Game(props) {
 
     Promise.all([promise1, promise2, promise3])
     .then(values => {
-      // const temporaryPlanetsImages = [];
+      const temporaryPlanetsImages = [];
 
-     //values.forEach((value) =>{
+     values.forEach((value) =>{
 
-    //  const random = Math.floor(Math.random()  * value.collection.items.length)
-      //  const temporaryPlanetsImages.push(value.collection.items[random].links[0].href);
-
-      //  console.log(random)
-        
-      //  })
-
-        
-      console.log(values[0].collection.items)
-
-      setPlanetsImages([values[0].collection.items[random].links[0].href, values[1].collection.items[0].links[0].href, values[2].collection.items[0].links[0].href])
-      
-
-      //setPlanetsImages([...temporaryPlanetsImages])
+     const random = Math.floor(Math.random()  * value.collection.items.length)
+       temporaryPlanetsImages.push(value.collection.items[random].links[0].href);
+       console.log(random)   
+       })
+      setPlanetsImages([...temporaryPlanetsImages])
       ;
-    })
-      
-  
+    })        
 
-
-      
-       
-        
-   
-      //.then((values) => values.json());
   }, [planets]);
 
   return (
