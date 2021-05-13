@@ -5,7 +5,7 @@ import Profile from "./components/Profile";
 import Game from "./components/Game";
 
 function App() {
-  const [page, setPage] = useState("game");
+  const [page, setPage] = useState("welcome");
   const [profile, setProfile] = React.useState(null);
 
   return (
