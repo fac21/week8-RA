@@ -76,8 +76,8 @@ function Game(props) {
 
   return (
     <div className="game stack-large">
-      <Navigation setPage={props.setPage} profile={props.profile} />
-      <h1>Game {props.profile}</h1>
+      <Navigation page={props.page} setPage={props.setPage} profile={props.profile} />
+      <h1>User {props.profile}</h1>
       <form className="stack-small " id="gameForm" onSubmit={setUpGame}>
         <SelectPlanet key="1" setPlanets={setPlanets} planetNumber="1" />
         <SelectPlanet key="2" setPlanets={setPlanets} planetNumber="2" />
@@ -89,8 +89,8 @@ function Game(props) {
         {planetsImages[1]  ? <img src={planetsImages[1]} alt="selected image 2"  /> : ""}
         {planetsImages[2]   ? <img src={planetsImages[2]} alt="selected image 3"  /> : ""}
       </div>
-      <Board planets={planetsImages} setResult={setResult}/>
       {result? <Result result={result}  /> : "" }
+      <Board planets={planetsImages} setResult={setResult}/>     
     </div>
   );
 }

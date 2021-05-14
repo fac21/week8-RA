@@ -12,15 +12,15 @@ function Profile(props) {
     fetch(USER_URL + props.profile)
       .then((result) => result.json())
       .then((data) => {
-        console.log(data);
         setProfileData(data)
       });
   }, [props.profile]);
 
   return (
-    <div className="profile">
-      {profileData ? <UserCard profileData={profileData} /> : <Loading />}
-      <Navigation setPage={props.setPage} profile={props.profile} />
+    <div className="profile stack-large">
+    <Navigation page={props.page} setPage={props.setPage} profile={props.profile} />
+      {profileData ? <UserCard profileData={profileData} /> : ""}
+      
     </div>
   );
 }

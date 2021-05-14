@@ -2,12 +2,36 @@ body {
   margin: 1rem;
   padding: 1rem;
   box-sizing: border-box;
-  background-image: url(./public/sky.jpg);
+  background-image: url(./public/sky_stars.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  font-family: "Roboto Mono", monospace;
+  overflow: auto;
+  color: white;
+  height: 150vh;
 }
+
+button {
+  background-color: Transparent;
+  border: solid 1px;
+  color: white;
+  font-family: "Roboto Mono", monospace;
+  margin: 1rem;
+  padding:0.5rem;
+  min-width: 10rem;
+  font-weight: 900 ;
+}
+
+input[type="submit"] {
+  background-color: Transparent; 
+  color: white;
+  border: solid 1px;
+}
+
 
 .flex-row {
   display: flex;
-  flex-flow: row;
+  flex-flow: row wrap;
   justify-content: center;
   align-items: center;
 }
@@ -20,18 +44,22 @@ body {
 }
 
 a {
-color: white;
-margin-bottom: 30px;
+  color: white;
+  margin-bottom: 30px;
 }
 
 .imageSelection {
-
   max-height: 100px;
 }
 
 .imageSelection > img {
   max-height: 100px;
   margin: 1rem;
+}
+
+.prof-pic {
+  max-width: 20rem;
+  max-height: 20rem;
 }
 
 .stack-small > * + * {
@@ -53,12 +81,66 @@ margin-bottom: 30px;
   grid-gap: 4rem;
 }
 
-.card{
+.card {
   min-width: 200px;
   min-height: 200px;
-  border: 1px black solid;
+  border: 1px white solid;
 }
 
-.card>img{
+.card > img {
   max-width: 200px;
+}
+
+.rocket {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+}
+.sun {
+  margin-top: 150px;
+  animation-name: orbit;
+  animation-duration: 5s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  top: 100px;
+  left: 100px;
+}
+
+@keyframes orbit {
+  from {
+    transform: rotate(360deg);
+  }
+  to {
+    transform: rotate(0deg);
+  }
+}
+
+
+@media screen and (max-width: 735px) {
+
+  .board {
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 4rem;
+  }
+
+}
+
+@media screen and (max-width: 600px) {
+
+  .card {
+    min-width: 100px;
+    min-height: 100px;
+  }
+
+  .prof-pic {
+    max-width: 15rem;
+    max-height: 15rem;
+  }
+
+  .imageSelection > img {
+    max-height: 50px;
+    margin: 1rem;
+  }
+
 }

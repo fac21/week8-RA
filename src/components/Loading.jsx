@@ -1,7 +1,15 @@
 import React from "react";
+import rocket from "../public/rocket.png";
+
 
 function Loading(pros) {
-  return <img src="" alt="spinning" />;
+  return (
+    <div className="loading">
+      <div className="sun">
+        <img className="rocket" src={rocket} />
+      </div>
+    </div>
+  );
 }
 
 export default Loading;

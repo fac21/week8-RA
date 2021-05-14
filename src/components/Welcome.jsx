@@ -8,11 +8,11 @@ function Welcome(props) {
   }
 
   return (
-    <div className="welcome">
+    <div className="welcome ">
       <h1>Welcome</h1>
-      <form onSubmit={getProfile}>
+      <form className="flex-column stack-small" onSubmit={getProfile}>
         <label htmlFor="profile">Login in with your Github username:</label>
-        <input type="search" name="profile" id="profile" required/>
+        <input type="search" name="profile" id="profile" required />
         <input type="submit" value="Create" />
       </form>
     </div>
