@@ -6,7 +6,7 @@ import Game from "./components/Game";
 import Loading from "./components/Loading";
 
 function App() {
-  const [page, setPage] = useState("profile");
+  const [page, setPage] = useState("welcome");
   const [profile, setProfile] = React.useState(null);
 
   return (
